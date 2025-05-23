@@ -1,0 +1,118 @@
+Nome: Site de Apoio ao Caloiro
+Objetivo: Facilitar a integração dos novos estudantes ao ambiente universitário através de um portal informativo, interativo e orientado à comunidade.
+=====================================================================================================================
+* Funcionalidades Chave
+
+Guia do Campus Virtual
+
+Visão geral da universidade e serviços (secretaria, biblioteca, plataformas online, etc.)
+
+Tutoriais sobre uso do sistema académico (como inscrever-se, aceder às notas, etc.)
+
+FAQ Interativo
+
+Lista de perguntas frequentes com sistema de busca
+
+Classificação por categorias (académico, alojamento, transportes, etc.)
+
+Possibilidade de submissão de novas dúvidas pelos utilizadores
+
+Mapa Digital
+
+Mapa interativo do campus (Google Maps ou Leaflet.js)
+
+Destaque de locais relevantes (salas, cantinas, residências, departamentos)
+
+Filtro por tipo de ponto de interesse
+
+Fórum de Dúvidas
+
+Espaço comunitário com tópicos por tema
+
+Permitir respostas por mentores ou estudantes veteranos
+
+Sistema de moderação (administrador pode remover conteúdo inadequado)
+
+Programa de Mentoria Online
+
+Ligação entre caloiros e mentores voluntários
+
+Sistema de registo e associação mentor-estudante
+
+Área privada para mensagens e acompanhamento
+======================================================================================================================
+
+Stack Tecnológica
+======================================================================================================================
+Frontend: React (para um site moderno e responsivo)
+
+Backend: Node.js 
+
+Base de Dados: MySQL 
+
+=====================================================================================================================
+
+ESTRUTURA
+=====================================================================================================================
+
+GUIA DE CALOIROS/
+├── backend/                  # Node.js (API)
+│   ├── config/
+│   │   └── db.js             # Configuração da base de dados
+│   ├── controllers/
+│   │   ├── authController.js # Autenticação
+│   │   ├── forumController.js# Gestão do fórum
+│   │   └── mapController.js  # Dados do mapa
+│   ├── models/
+│   │   ├── User.js           # Modelo de usuário
+│   │   ├── Post.js           # Modelo de posts do fórum
+│   │   └── Mentor.js         # Modelo de mentores
+│   ├── routes/
+│   │   ├── authRoutes.js     # Rotas de autenticação
+│   │   ├── forumRoutes.js    # Rotas do fórum
+│   │   └── index.js          # Rotas principais
+│   ├── middlewares/
+│   │   └── auth.js           # Middleware de autenticação
+│   ├── utils/
+│   │   └── emailService.js   # Serviço de emails
+│   ├── .env                  # Variáveis de ambiente
+│   ├── app.js                # Configuração do Express
+│   └── server.js             # Inicialização do servidor
+│
+├── frontend/                 # React (Aplicação)
+│   ├── public/
+│   │   ├── index.html        # Template base
+│   │   └── assets/           # Imagens/fontes
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/
+│   │   │   │   ├── Header.js
+│   │   │   │   └── Footer.js
+│   │   │   ├── campus/
+│   │   │   │   ├── VirtualTour.js
+│   │   │   │   └── MapView.js
+│   │   │   ├── forum/
+│   │   │   │   ├── PostList.js
+│   │   │   │   └── NewPostForm.js
+│   │   │   └── mentorship/
+│   │   │       ├── MentorCard.js
+│   │   │       └── ScheduleForm.js
+│   │   ├── pages/
+│   │   │   ├── Home.js       # Página inicial
+│   │   │   ├── Forum.js      # Página do fórum
+│   │   │   └── Mentors.js    # Página de mentores
+│   │   ├── services/
+│   │   │   ├── api.js        # Config Axios
+│   │   │   ├── auth.js       # Serviços de autenticação
+│   │   │   └── forum.js      # Chamadas API do fórum
+│   │   ├── styles/
+│   │   │   ├── global.css    # Estilos globais
+│   │   │   └── theme.js      # Tema (Material-UI)
+│   │   ├── App.js            # Componente raiz
+│   │   ├── index.js          # Ponto de entrada
+│   │   └── routes.js         # Configuração de rotas
+│   ├── package.json          # Dependências do frontend
+│   └── .env.local            # Variáveis de ambiente frontend
+│
+├── .gitignore
+└── README.md                 # Documentação do projeto
